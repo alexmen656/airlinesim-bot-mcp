@@ -1,0 +1,14 @@
+{
+  "name": "airlinesim-bot",
+  "version": "1.0.0",
+  "description": "AirlineSim Bot mit Playwright",
+  "main": "login.js",
+  "type": "module",
+  "scripts": {
+    "start": "node login.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.4",
+    "playwright": "^1.40.0"
+  }
+}
