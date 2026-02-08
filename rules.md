@@ -10,3 +10,8 @@ Some general Rules and Mechanics in AS:
 
 - restrictions:
 1. Small panes like Crjs ATRs or Dashes cant fly from 10-10 airports for example so o dash 8 flight from new york to boston etc
+
+- general:
+1. Airlinesim is working in real time so a 9h flight takes real 9h! and plane deliviries can take some time too.
+2. Airlinesim works with real airporet sizes, from 1-10 based on real demand in the real world
+3.
