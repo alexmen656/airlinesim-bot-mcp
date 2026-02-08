@@ -4,3 +4,6 @@ node_modules/
 package-lock.json
 inspect.js
 start-bot.sh
+analy*
+MCP_SETUP.md
+test-mcp.sh

@@ -1,13 +1,18 @@
 {
   "name": "airlinesim-bot",
   "version": "1.0.0",
-  "description": "AirlineSim Bot mit Playwright",
+  "description": "AirlineSim Bot mit Playwright und MCP Server",
   "main": "login.js",
   "type": "module",
+  "bin": {
+    "airlinesim-mcp": "./mcp-server.js"
+  },
   "scripts": {
-    "start": "node login.js"
+    "start": "node login.js",
+    "mcp": "node mcp-server.js"
   },
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0",
     "dotenv": "^17.2.4",
     "playwright": "^1.40.0"
   }

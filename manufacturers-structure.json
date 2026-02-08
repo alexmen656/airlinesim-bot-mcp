@@ -1,0 +1,659 @@
+{
+  "manufacturers": [
+    {
+      "manufacturer": "Aerospatiale",
+      "families": [
+        {
+          "familyId": "1000100",
+          "name": "Nord 262",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1000100"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Airbus Industrie",
+      "families": [
+        {
+          "familyId": "1200250",
+          "name": "A220",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1200250"
+        },
+        {
+          "familyId": "1200299",
+          "name": "A318 / A319",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1200299"
+        },
+        {
+          "familyId": "1200300",
+          "name": "A320 / A321",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1200300"
+        },
+        {
+          "familyId": "1200310",
+          "name": "A319 / A320 / A321 NEO",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1200310"
+        },
+        {
+          "familyId": "1200100",
+          "name": "A300",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1200100"
+        },
+        {
+          "familyId": "1200200",
+          "name": "A310",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1200200"
+        },
+        {
+          "familyId": "1200400",
+          "name": "A330",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1200400"
+        },
+        {
+          "familyId": "1200410",
+          "name": "A330 NEO",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1200410"
+        },
+        {
+          "familyId": "1200500",
+          "name": "A340",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1200500"
+        },
+        {
+          "familyId": "1200600",
+          "name": "A350",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1200600"
+        },
+        {
+          "familyId": "1200800",
+          "name": "A380",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1200800"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Antonov",
+      "families": [
+        {
+          "familyId": "1400200",
+          "name": "AN-24 / AN-26 / AN-32",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1400200"
+        },
+        {
+          "familyId": "1400300",
+          "name": "AN-38",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1400300"
+        },
+        {
+          "familyId": "1400600",
+          "name": "AN140",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1400600"
+        },
+        {
+          "familyId": "1400400",
+          "name": "AN-72 / AN-74",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1400400"
+        },
+        {
+          "familyId": "1400650",
+          "name": "AN148",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1400650"
+        },
+        {
+          "familyId": "1400100",
+          "name": "AN-12 / AN-12B",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1400100"
+        },
+        {
+          "familyId": "1400500",
+          "name": "AN-124",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1400500"
+        }
+      ]
+    },
+    {
+      "manufacturer": "AVIC II",
+      "families": [
+        {
+          "familyId": "1500100",
+          "name": "Harbin Y-12",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1500100"
+        },
+        {
+          "familyId": "1500200",
+          "name": "Xian Y-7",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1500200"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Avions Transport Regional - ATR",
+      "families": [
+        {
+          "familyId": "1600100",
+          "name": "ATR 42",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1600100"
+        },
+        {
+          "familyId": "1600200",
+          "name": "ATR 72",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1600200"
+        }
+      ]
+    },
+    {
+      "manufacturer": "BAE Systems - British Aerospace",
+      "families": [
+        {
+          "familyId": "1800200",
+          "name": "Jetstream 41",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1800200"
+        },
+        {
+          "familyId": "1800300",
+          "name": "HS748",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1800300"
+        },
+        {
+          "familyId": "1800400",
+          "name": "ATP",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1800400"
+        },
+        {
+          "familyId": "1800500",
+          "name": "146-100/200/300",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1800500"
+        },
+        {
+          "familyId": "1800600",
+          "name": "Avro RJ70/85/100",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1800600"
+        },
+        {
+          "familyId": "1800700",
+          "name": "BAC-1-11",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=1800700"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Boeing",
+      "families": [
+        {
+          "familyId": "2200150",
+          "name": "717",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=2200150"
+        },
+        {
+          "familyId": "2200200",
+          "name": "727-100",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=2200200"
+        },
+        {
+          "familyId": "2200250",
+          "name": "727-200",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=2200250"
+        },
+        {
+          "familyId": "2200300",
+          "name": "737-200",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=2200300"
+        },
+        {
+          "familyId": "2200350",
+          "name": "737-300/400/500",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=2200350"
+        },
+        {
+          "familyId": "2200400",
+          "name": "737-600/700/800/900",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=2200400"
+        },
+        {
+          "familyId": "2200410",
+          "name": "737 MAX",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=2200410"
+        },
+        {
+          "familyId": "2200100",
+          "name": "707",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=2200100"
+        },
+        {
+          "familyId": "2200448",
+          "name": "747SP",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=2200448"
+        },
+        {
+          "familyId": "2200450",
+          "name": "747-100/200",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=2200450"
+        },
+        {
+          "familyId": "2200452",
+          "name": "747-300",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=2200452"
+        },
+        {
+          "familyId": "2200500",
+          "name": "747-400",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=2200500"
+        },
+        {
+          "familyId": "2200510",
+          "name": "747-8",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=2200510"
+        },
+        {
+          "familyId": "2200550",
+          "name": "757-200/300",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=2200550"
+        },
+        {
+          "familyId": "2200600",
+          "name": "767-200/300/400",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=2200600"
+        },
+        {
+          "familyId": "2200650",
+          "name": "777-200/300",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=2200650"
+        },
+        {
+          "familyId": "2200700",
+          "name": "787",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=2200700"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Britten-Norman",
+      "families": [
+        {
+          "familyId": "2600100",
+          "name": "Islander / Trislander",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=2600100"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Casa",
+      "families": [
+        {
+          "familyId": "2800100",
+          "name": "CN-235",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=2800100"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Cessna",
+      "families": [
+        {
+          "familyId": "3000100",
+          "name": "208 Caravan",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=3000100"
+        },
+        {
+          "familyId": "3000200",
+          "name": "408 SkyCourier",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=3000200"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Comac",
+      "families": [
+        {
+          "familyId": "3200100",
+          "name": "ARJ21",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=3200100"
+        },
+        {
+          "familyId": "3200200",
+          "name": "C919",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=3200200"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Convair",
+      "families": [
+        {
+          "familyId": "3200300",
+          "name": "CV-580",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=3200300"
+        }
+      ]
+    },
+    {
+      "manufacturer": "De Havilland",
+      "families": [
+        {
+          "familyId": "3800200",
+          "name": "DHC-6",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=3800200"
+        },
+        {
+          "familyId": "3800300",
+          "name": "Dash 7",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=3800300"
+        },
+        {
+          "familyId": "3800400",
+          "name": "Dash 8",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=3800400"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Embraer",
+      "families": [
+        {
+          "familyId": "4200100",
+          "name": "EMB 120",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=4200100"
+        },
+        {
+          "familyId": "4200200",
+          "name": "ERJ 135/140/145",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=4200200"
+        },
+        {
+          "familyId": "4200300",
+          "name": "EMB 170/175/190/195",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=4200300"
+        },
+        {
+          "familyId": "4200400",
+          "name": "EMB 175/190/195 E2",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=4200400"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Fairchild",
+      "families": [
+        {
+          "familyId": "4600200",
+          "name": "F-27 / FH-227",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=4600200"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Fairchild Dornier",
+      "families": [
+        {
+          "familyId": "4800100",
+          "name": "Do 228",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=4800100"
+        },
+        {
+          "familyId": "4800200",
+          "name": "Do 328 / Do328JET",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=4800200"
+        },
+        {
+          "familyId": "4800200",
+          "name": "Do 328 / Do328JET",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=4800200"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Fokker",
+      "families": [
+        {
+          "familyId": "5000100",
+          "name": "F-27",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=5000100"
+        },
+        {
+          "familyId": "5000300",
+          "name": "F50",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=5000300"
+        },
+        {
+          "familyId": "5000200",
+          "name": "F-28",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=5000200"
+        },
+        {
+          "familyId": "5000400",
+          "name": "F70/100",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=5000400"
+        }
+      ]
+    },
+    {
+      "manufacturer": "General Atomics",
+      "families": [
+        {
+          "familyId": "7300100",
+          "name": "DO228NG",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=7300100"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Ilyushin",
+      "families": [
+        {
+          "familyId": "6000100",
+          "name": "IL-114",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=6000100"
+        },
+        {
+          "familyId": "6000050",
+          "name": "IL-18",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=6000050"
+        },
+        {
+          "familyId": "6000200",
+          "name": "IL-62",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=6000200"
+        },
+        {
+          "familyId": "6000300",
+          "name": "IL-76",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=6000300"
+        },
+        {
+          "familyId": "6000400",
+          "name": "IL-86 / IL-96",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=6000400"
+        }
+      ]
+    },
+    {
+      "manufacturer": "LET",
+      "families": [
+        {
+          "familyId": "6200100",
+          "name": "410",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=6200100"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Lockheed Martin",
+      "families": [
+        {
+          "familyId": "6400200",
+          "name": "Electra",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=6400200"
+        },
+        {
+          "familyId": "6400300",
+          "name": "TriStar",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=6400300"
+        }
+      ]
+    },
+    {
+      "manufacturer": "McDonnell Douglas",
+      "families": [
+        {
+          "familyId": "6800100",
+          "name": "DC-9",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=6800100"
+        },
+        {
+          "familyId": "6800200",
+          "name": "MD-80",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=6800200"
+        },
+        {
+          "familyId": "6800300",
+          "name": "MD-90",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=6800300"
+        },
+        {
+          "familyId": "6800400",
+          "name": "DC-8-50/DC-8-60",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=6800400"
+        },
+        {
+          "familyId": "6800500",
+          "name": "DC-8-70",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=6800500"
+        },
+        {
+          "familyId": "6800600",
+          "name": "DC-10/MD-10",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=6800600"
+        },
+        {
+          "familyId": "6800700",
+          "name": "MD-11",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=6800700"
+        }
+      ]
+    },
+    {
+      "manufacturer": "MHI RJ Aviation",
+      "families": [
+        {
+          "familyId": "2400200",
+          "name": "CRJ Series",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=2400200"
+        }
+      ]
+    },
+    {
+      "manufacturer": "NAMC",
+      "families": [
+        {
+          "familyId": "7000100",
+          "name": "YS-11",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=7000100"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Pilatus",
+      "families": [
+        {
+          "familyId": "7005100",
+          "name": "PC-12",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=7005100"
+        },
+        {
+          "familyId": "7005200",
+          "name": "PC-24",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=7005200"
+        }
+      ]
+    },
+    {
+      "manufacturer": "PZL",
+      "families": [
+        {
+          "familyId": "7100100",
+          "name": "AN-28",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=7100100"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Raytheon",
+      "families": [
+        {
+          "familyId": "7200100",
+          "name": "1900 Airliner",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=7200100"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Saab",
+      "families": [
+        {
+          "familyId": "7400100",
+          "name": "340 / 2000",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=7400100"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Shorts",
+      "families": [
+        {
+          "familyId": "7600100",
+          "name": "330",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=7600100"
+        },
+        {
+          "familyId": "7600200",
+          "name": "360",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=7600200"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Sukhoi",
+      "families": [
+        {
+          "familyId": "7900100",
+          "name": "Superjet",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=7900100"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Tupolev",
+      "families": [
+        {
+          "familyId": "8000100",
+          "name": "TU-134",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=8000100"
+        },
+        {
+          "familyId": "8000200",
+          "name": "TU-154",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=8000200"
+        },
+        {
+          "familyId": "8000300",
+          "name": "TU-204/214",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=8000300"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Yakovlev",
+      "families": [
+        {
+          "familyId": "8800100",
+          "name": "Yak40",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=8800100"
+        },
+        {
+          "familyId": "8800200",
+          "name": "Yak42",
+          "url": "https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=8800200"
+        }
+      ]
+    }
+  ]
+}

@@ -38,11 +38,9 @@ async function loginToAirlineSim(email, password, rememberMe = false) {
         const loginInput = page.locator('input[name="login"]');
         await loginInput.waitFor({ timeout: 5000 });
         await loginInput.fill(email);
-        console.log('✅ Email eingegeben');
 
         const passwordInput = page.locator('input[name="password"]');
         await passwordInput.fill(password);
-        console.log('✅ Passwort eingegeben');
 
         if (rememberMe) {
             const persistentCheckbox = page.locator('input[name="persistent"]');
@@ -50,7 +48,6 @@ async function loginToAirlineSim(email, password, rememberMe = false) {
             console.log('✅ "Login merken" aktiviert');
         }
 
-        console.log('🔐 Klicke Login-Button...');
         const loginButton = page.locator('button.btn--primary.btn--full-width:has-text("Log in")');
         await loginButton.click();
         console.log('✅ Login-Button geklickt');
