@@ -12,6 +12,8 @@ import { BrowserManager } from './tools/browser.js';
 import { aircraftTools, AircraftHandlers } from './tools/aircraft.js';
 import { stationTools, StationHandlers } from './tools/stations.js';
 import { navigationTools, NavigationHandlers } from './tools/navigation.js';
+import { infoTools, InfoHandlers } from './tools/info.js';
+import { info } from "console";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -33,7 +35,7 @@ class AirlineSimServer {
         );
 
         this.browserManager = new BrowserManager();
-
+        this.infoHandlers = new InfoHandlers(this.browserManager);
         this.aircraftHandlers = new AircraftHandlers(this.browserManager);
         this.stationHandlers = new StationHandlers(this.browserManager);
         this.navigationHandlers = new NavigationHandlers(this.browserManager);
@@ -71,6 +73,7 @@ class AirlineSimServer {
                 ...aircraftTools,
                 ...stationTools,
                 ...navigationTools,
+                ...infoTools,
             ];
 
             if (this.gameRules) {
@@ -100,6 +103,11 @@ class AirlineSimServer {
                     return await this.aircraftHandlers.searchAircraft(args);
                 }
 
+                // Info Tools
+                if (name === "get_airline_info") {
+                    return await this.infoHandlers.getAirlineInfo();
+                }
+
                 // Station Tools
                 if (name === "list_stations") {
                     return await this.stationHandlers.listStations(args?.country);
@@ -107,6 +115,7 @@ class AirlineSimServer {
                 if (name === "get_station_details") {
                     return await this.stationHandlers.getStationDetails(args.stationCode);
                 }
+
                 if (name === "open_station") {
                     return await this.stationHandlers.openStation(args.airportCode);
                 }
@@ -144,6 +153,8 @@ class AirlineSimServer {
         console.error(`- ${aircraftTools.length} Aircraft Tools`);
         console.error(`- ${stationTools.length} Station Tools`);
         console.error(`- ${navigationTools.length} Navigation Tools`);
+        console.error(`- ${infoTools.length} Info Tools`);
+        
         if (this.gameRules) {
             console.error('- Grundwissen aus rules.md geladen');
         }
