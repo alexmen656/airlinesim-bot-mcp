@@ -13,7 +13,7 @@ import { aircraftTools, AircraftHandlers } from './tools/aircraft.js';
 import { stationTools, StationHandlers } from './tools/stations.js';
 import { navigationTools, NavigationHandlers } from './tools/navigation.js';
 import { infoTools, InfoHandlers } from './tools/info.js';
-import { info } from "console";
+import { inventoryTools, InventoryHandlers } from './tools/inventory.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -24,7 +24,7 @@ class AirlineSimServer {
 
         this.server = new Server(
             {
-                name: "airlinesim-bot",
+                name: "AirlineSim-bot",
                 version: "1.0.0",
             },
             {
@@ -39,6 +39,7 @@ class AirlineSimServer {
         this.aircraftHandlers = new AircraftHandlers(this.browserManager);
         this.stationHandlers = new StationHandlers(this.browserManager);
         this.navigationHandlers = new NavigationHandlers(this.browserManager);
+        this.inventoryHandlers = new InventoryHandlers(this.browserManager);
 
         this.setupHandlers();
         this.setupErrorHandling();
@@ -74,6 +75,7 @@ class AirlineSimServer {
                 ...stationTools,
                 ...navigationTools,
                 ...infoTools,
+                ...inventoryTools,
             ];
 
             if (this.gameRules) {
@@ -131,6 +133,21 @@ class AirlineSimServer {
                     return await this.navigationHandlers.getPageContent();
                 }
 
+                // Inventory Tools
+                if (name === "get_route_inventory") {
+                    return await this.inventoryHandlers.getRouteInventory(args.origin, args.destination);
+                }
+                if (name === "set_route_prices") {
+                    return await this.inventoryHandlers.setRoutePrices(
+                        args.origin,
+                        args.destination,
+                        args.priceY,
+                        args.priceC,
+                        args.priceF,
+                        args.priceCargo
+                    );
+                }
+
                 throw new Error(`Unknown tool: ${name}`);
             } catch (error) {
                 return {
@@ -154,7 +171,8 @@ class AirlineSimServer {
         console.error(`- ${stationTools.length} Station Tools`);
         console.error(`- ${navigationTools.length} Navigation Tools`);
         console.error(`- ${infoTools.length} Info Tools`);
-        
+        console.error(`- ${inventoryTools.length} Inventory Tools`);
+
         if (this.gameRules) {
             console.error('- Grundwissen aus rules.md geladen');
         }
