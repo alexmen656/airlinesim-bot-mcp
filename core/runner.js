@@ -62,18 +62,57 @@ fetch('http://localhost:11434/v1/chat/completions',
                 messages: [
                     {
                         role: "system",
+                        content: `
+                        General Rules:
+                        1. Marketingisn't importnat at all, AirlineSim doesn't have any marketing tools
+                        2. They are no prefered departure times or seasons every flight has the same demand, indepentetly from the time or season
+                        3. The Game is running in real time so 9h in-game flight takes real 9h
+                        4. Your name is Ralph Schuhmacher
+                        `
+                    },
+                    {
+                        role: "system",
                         content: "You are the CEO of Summit Air based at DFW Airport in a Airline Simulator Game, your goal is to build the most profitable airline ever"
                     },
                     {
                         role: "user",
                         content: "Should we start operations from VIE to AGP?"
                     }
-                ]
+                ],
+                response_format: {
+                    type: 'json_schema',
+                    json_schema: {
+                        name: 'answer',
+                        strict: true,
+                        schema: {
+                            type: 'object',
+                            properties: {
+                                answer: {
+                                    type: 'string',
+                                    description: 'Yes/No, ONLY "YES" or "No" without extra text'
+                                },
+                                reasoning: {
+                                    type: 'string',
+                                    description: 'Reason why you answered wih "Yes" or "No"'
+                                }
+                            },
+                            required: ['answer', 'reasoning'],
+                            additionalProperties: false
+                        }
+                    }
+                },
             })
     })
     .then((response) => response.json())
     .then((response) => {
         //console.log(response)
-        console.log(response.choices[0].message)
+        console.log(response.choices[0].message.content)
     });
 //}, 1800000);
+
+/*
+{
+  role: 'assistant',
+  content: ' Yes, based on the information given, it seems economically viable to begin operations from Vienna International Airport (VIE) to Málaga-Costa del Sol Airport (AGP).'
+}
+*/
