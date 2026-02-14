@@ -68,15 +68,16 @@ fetch('http://localhost:11434/v1/chat/completions',
                         2. They are no prefered departure times or seasons every flight has the same demand, indepentetly from the time or season
                         3. The Game is running in real time so 9h in-game flight takes real 9h
                         4. Your name is Ralph Schuhmacher
+                        5. Our strategy is Hub and Spoke not Point to Point!!!
                         `
                     },
                     {
                         role: "system",
-                        content: "You are the CEO of Summit Air based at DFW Airport in a Airline Simulator Game, your goal is to build the most profitable airline ever"
+                        content: "You are the CEO of Summit Air, a Airline based at DFW (Dallas Internationl Airport, USA) Airport in a Airline Simulator Game, your goal is to build the most profitable airline ever"
                     },
                     {
-                        role: "user",
-                        content: "Should we start operations from VIE to AGP?"
+                        role: "your_managament_team",//system
+                        content: "Should we start operations from VIE (Vienna), Austria to AGP (Málaga), Spain?"
                     }
                 ],
                 response_format: {
