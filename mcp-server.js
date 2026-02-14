@@ -104,6 +104,14 @@ class AirlineSimServer {
                 if (name === "search_aircraft") {
                     return await this.aircraftHandlers.searchAircraft(args);
                 }
+                if (name === "get_aircraft_performance") {
+                    return await this.aircraftHandlers.getAircraftPerformance(
+                        args.typeId,
+                        args.origin,
+                        args.destination,
+                        args.cruiseSpeed
+                    );
+                }
 
                 // Info Tools
                 if (name === "get_airline_info") {

@@ -60,6 +60,32 @@ export const aircraftTools = [
             },
         },
     },
+    {
+        name: "get_aircraft_performance",
+        description: "Berechnet Performance-Daten für einen Flugzeugtyp auf einer Route. Zeigt Flugzeit, ob Landebahnen ausreichend sind, Reichweite, Treibstoffverbrauch und ob die Route machbar ist.",
+        inputSchema: {
+            type: "object",
+            properties: {
+                typeId: {
+                    type: "string",
+                    description: "Die ID des Flugzeugtyps (z.B. '3155')",
+                },
+                origin: {
+                    type: "string",
+                    description: "IATA-Code des Abflughafens (z.B. 'DFW')",
+                },
+                destination: {
+                    type: "string",
+                    description: "IATA-Code des Zielhafens (z.B. 'ORD')",
+                },
+                cruiseSpeed: {
+                    type: "number",
+                    description: "Reisegeschwindigkeit in km/h (optional, Standard: 840)",
+                },
+            },
+            required: ["typeId", "origin", "destination"],
+        },
+    },
 ];
 
 export class AircraftHandlers {
@@ -69,7 +95,7 @@ export class AircraftHandlers {
 
     async listAircraftManufacturers() {
         const page = await this.browserManager.ensureLoggedIn();
-        
+
         await page.goto('https://quimby.airlinesim.aero/app/aircraft/manufacturers?2', {
             waitUntil: 'networkidle'
         });
@@ -125,7 +151,7 @@ export class AircraftHandlers {
 
     async getAircraftFamily(familyId) {
         const page = await this.browserManager.ensureLoggedIn();
-        
+
         await page.goto(`https://quimby.airlinesim.aero/action/enterprise/aircraftsFamily?id=${familyId}`, {
             waitUntil: 'networkidle'
         });
@@ -193,7 +219,7 @@ export class AircraftHandlers {
 
     async getAircraftType(typeId) {
         const page = await this.browserManager.ensureLoggedIn();
-        
+
         await page.goto(`https://quimby.airlinesim.aero/action/enterprise/aircraftsType?id=${typeId}`, {
             waitUntil: 'networkidle'
         });
@@ -274,7 +300,7 @@ export class AircraftHandlers {
 
     async searchAircraft(criteria) {
         const page = await this.browserManager.ensureLoggedIn();
-        
+
         await page.goto('https://quimby.airlinesim.aero/app/aircraft/manufacturers?2', {
             waitUntil: 'networkidle'
         });
@@ -360,6 +386,156 @@ export class AircraftHandlers {
                         totalMatches: matchingAircraft.length,
                         matches: matchingAircraft,
                         note: `Durchsucht ${Math.min(20, allFamilies.length)} von ${allFamilies.length} Familien`
+                    }, null, 2),
+                },
+            ],
+        };
+    }
+
+    async getAircraftPerformance(typeId, origin, destination, cruiseSpeed = 840) {
+        const page = await this.browserManager.ensureLoggedIn();
+
+        const url = `https://quimby.airlinesim.aero/action/enterprise/aircraftsPerformance?id=${typeId}&dep=${origin.toUpperCase()}&arr=${destination.toUpperCase()}&speed=${cruiseSpeed}`;
+        await page.goto(url, { waitUntil: 'networkidle' });
+        await page.waitForTimeout(1000);
+
+        const performanceData = await page.evaluate(() => {
+            const result = {
+                aircraftName: '',
+                flightTime: '',
+                atcFee: '',
+                airportFee: '',
+                takeoffStatus: '',
+                landingStatus: '',
+                flightDistance: 0,
+                maxRange: 0,
+                routeRestrictions: '',
+                payload: {},
+                fuelConsumption: '',
+                feasible: true
+            };
+
+            const nameEl = document.querySelector('h1, h2, h3');
+            if (nameEl) {
+                result.aircraftName = nameEl.textContent.trim();
+            }
+
+            const perfTables = document.querySelectorAll('.as-panel .as-table-well table');
+            perfTables.forEach(table => {
+                const rows = table.querySelectorAll('tbody tr');
+                rows.forEach(row => {
+                    const th = row.querySelector('th');
+                    const td = row.querySelector('td');
+                    if (th && td) {
+                        const label = th.textContent.trim();
+                        const value = td.textContent.trim();
+
+                        if (label.includes('Flight time')) {
+                            result.flightTime = value;
+                        } else if (label.includes('Air traffic control fee')) {
+                            result.atcFee = value;
+                        } else if (label.includes('Airport fee')) {
+                            result.airportFee = value;
+                        } else if (label.includes('Calculated payload')) {
+                            result.payload.calculated = value;
+                        } else if (label.includes('Maximum payload')) {
+                            result.payload.maximum = value;
+                        } else if (label.includes('% of maximum')) {
+                            result.payload.percentage = value;
+                        } else if (label.includes('Fuel consumption')) {
+                            result.fuelConsumption = value;
+                        }
+                    }
+                });
+            });
+
+            const allRows = document.querySelectorAll('tbody tr');
+            allRows.forEach(row => {
+                const th = row.querySelector('th');
+                if (!th) return;
+
+                const label = th.textContent.trim();
+                const statusCell = row.querySelector('td:last-child span');
+
+                if (label.includes('Ground roll takeoff')) {
+                    if (statusCell) {
+                        result.takeoffStatus = statusCell.textContent.trim();
+                        if (!statusCell.classList.contains('good')) {
+                            result.feasible = false;
+                        }
+                    }
+                } else if (label.includes('Ground roll landing')) {
+                    if (statusCell) {
+                        result.landingStatus = statusCell.textContent.trim();
+                        if (!statusCell.classList.contains('good')) {
+                            result.feasible = false;
+                        }
+                    }
+                } else if (label.includes('Flight distance')) {
+                    const cells = row.querySelectorAll('td');
+                    const distances = [];
+                    cells.forEach(cell => {
+                        const text = cell.textContent.trim();
+                        const match = text.match(/([0-9,]+)\s*km/);
+                        if (match) {
+                            distances.push(parseInt(match[1].replace(/,/g, '')));
+                        }
+                    });
+
+                    if (distances.length >= 2) {
+                        distances.sort((a, b) => a - b);
+                        result.flightDistance = distances[0];
+                        result.maxRange = distances[distances.length - 1];
+                    } else if (distances.length === 1) {
+                        result.flightDistance = distances[0];
+                    }
+
+                    if (statusCell && !statusCell.classList.contains('good')) {
+                        result.feasible = false;
+                    }
+                } else if (label.includes('Route Restrictions')) {
+                    if (statusCell) {
+                        result.routeRestrictions = statusCell.textContent.trim();
+                        if (!statusCell.classList.contains('good')) {
+                            result.feasible = false;
+                        }
+                    }
+                }
+            });
+
+            return result;
+        });
+
+        const rangeCheck = {
+            flightDistance: performanceData.flightDistance,
+            maxRange: performanceData.maxRange,
+            sufficient: performanceData.flightDistance <= performanceData.maxRange
+        };
+
+        const finalFeasibility = performanceData.feasible && rangeCheck.sufficient;
+
+        return {
+            content: [
+                {
+                    type: "text",
+                    text: JSON.stringify({
+                        aircraft: performanceData.aircraftName,
+                        route: `${origin.toUpperCase()}-${destination.toUpperCase()}`,
+                        feasible: finalFeasibility,
+                        flightTime: performanceData.flightTime,
+                        flightDistance: `${performanceData.flightDistance} km`,
+                        rangeCheck: rangeCheck,
+                        runwayChecks: {
+                            takeoff: performanceData.takeoffStatus,
+                            landing: performanceData.landingStatus
+                        },
+                        routeRestrictions: performanceData.routeRestrictions,
+                        costs: {
+                            atcFee: performanceData.atcFee,
+                            airportFee: performanceData.airportFee
+                        },
+                        fuel: performanceData.fuelConsumption,
+                        payload: performanceData.payload
                     }, null, 2),
                 },
             ],
