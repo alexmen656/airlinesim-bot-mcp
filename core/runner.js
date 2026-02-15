@@ -1,6 +1,7 @@
 import { BrowserManager } from './interns/browser.js';
 import { GameState } from './state/gameState.js';
 import { FleetManager } from './modules/fleet/checkDeliveries.js';
+import { AircraftPlanner } from './modules/fleet/planAircraft.js';
 
 class AirlineSimBot {
     constructor() {
@@ -11,18 +12,19 @@ class AirlineSimBot {
         this.airlineName = "Summit Air";
         this.gameState = null;
         this.browserManager = new BrowserManager();
-        this.fleetManager = null;
+        this.fleetManager = new FleetManager(this.browserManager);
     }
 
     async startBot() {
         this.gameState = await new GameState(this.browserManager).getAirlineInfo();
-        console.log(this.gameState);
-
-        const fleetManager = new FleetManager(this.browserManager);
-        const deliveries = await fleetManager.checkDeliveries();
-
+        const deliveries = await this.fleetManager.checkDeliveries();
         console.log('Deliveries:', deliveries);
 
+        const planner = new AircraftPlanner(this.browserManager);
+        deliveries.slice(-1).forEach(async (delivery) => {
+            const planResult = await planner.planPlane(delivery.id);
+            console.log('Planning result for aircraft ID', delivery.id, ':', planResult);
+        });
     }
 }
 
