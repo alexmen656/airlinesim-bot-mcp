@@ -1,5 +1,6 @@
 import { BrowserManager } from './interns/browser.js';
 import { GameState } from './state/gameState.js';
+import { FleetManager } from './modules/fleet/checkDeliveries.js';
 
 class AirlineSimBot {
     constructor() {
@@ -10,11 +11,18 @@ class AirlineSimBot {
         this.airlineName = "Summit Air";
         this.gameState = null;
         this.browserManager = new BrowserManager();
+        this.fleetManager = null;
     }
 
     async startBot() {
         this.gameState = await new GameState(this.browserManager).getAirlineInfo();
         console.log(this.gameState);
+
+        const fleetManager = new FleetManager(this.browserManager);
+        const deliveries = await fleetManager.checkDeliveries();
+
+        console.log('Deliveries:', deliveries);
+
     }
 }
 

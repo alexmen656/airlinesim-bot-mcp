@@ -48,23 +48,23 @@ export class BrowserManager {
         // cookie banner
         try {
             await this.page.locator('button.btn--primary:has-text("Accept all cookies")').click({ timeout: 3000 });
-            await this.page.waitForTimeout(200);
+            await this.page.waitForTimeout(100);
         } catch (e) {
             console.log('No cookie banner found, continuing...');
         }
 
         // input fields
         await this.page.locator('input[name="login"]').fill(email);
-        await this.page.waitForTimeout(200);
+        await this.page.waitForTimeout(100);
         await this.page.locator('input[name="password"]').fill(password);
-        await this.page.waitForTimeout(200);
+        await this.page.waitForTimeout(100);
 
         if (rememberMe) {
             await this.page.locator('input[name="persistent"]').check();
-            await this.page.waitForTimeout(200);
+            await this.page.waitForTimeout(100);
         }
 
-        await this.page.waitForTimeout(200);
+        await this.page.waitForTimeout(100);
         await this.page.locator('button.btn--primary.btn--full-width:has-text("Log in")').click();
 
         try {
