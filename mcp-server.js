@@ -8,7 +8,7 @@ import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
-import { BrowserManager } from './tools/browser.js';
+import { BrowserManager } from './core/interns/browser.js';
 import { aircraftTools, AircraftHandlers } from './tools/aircraft.js';
 import { stationTools, StationHandlers } from './tools/stations.js';
 import { navigationTools, NavigationHandlers } from './tools/navigation.js';

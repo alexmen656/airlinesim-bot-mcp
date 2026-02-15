@@ -60,10 +60,10 @@ export class GameState {
                                 result.rating = value;
                                 break;
                             case 'Fleet size':
-                                result.fleetSize = value;
+                                result.fleetSize = Number(value.replace(',', ''));
                                 break;
                             case 'Employees':
-                                result.employees = value;
+                                result.employees = Number(value.replace(',', ''));
                                 break;
                         }
                     }
@@ -74,31 +74,31 @@ export class GameState {
             const balanceLink = document.querySelector('a.balance');
             if (balanceLink) {
                 const balanceSpan = balanceLink.querySelector('span');
-                result.balance = balanceSpan ? balanceSpan.textContent.trim() + ' AS$' : '';
+                result.balance = balanceSpan ? Number(balanceSpan.textContent.trim().replaceAll(',', '')) : 0;
             }
 
             // Financerating
-            const ratingTable = document.querySelector('.as-table-well table');
-            if (ratingTable) {
-                const ratingRows = ratingTable.querySelectorAll('tbody tr');
-                const ratings = [];
-
-                ratingRows.forEach(row => {
-                    const cells = row.querySelectorAll('td, th');
-                    if (cells.length >= 3) {
-                        const category = cells[0].textContent.trim();
-                        const ratingText = cells[2].textContent.trim();
-                        if (category && ratingText) {
-                            ratings.push({
-                                category: category,
-                                rating: ratingText
-                            });
-                        }
-                    }
-                });
-
-                result.financialRatings = ratings;
-            }
+            /* const ratingTable = document.querySelector('.as-table-well table');
+             if (ratingTable) {
+                 const ratingRows = ratingTable.querySelectorAll('tbody tr');
+                 const ratings = [];
+ 
+                 ratingRows.forEach(row => {
+                     const cells = row.querySelectorAll('td, th');
+                     if (cells.length >= 3) {
+                         const category = cells[0].textContent.trim();
+                         const ratingText = cells[2].textContent.trim();
+                         if (category && ratingText) {
+                             ratings.push({
+                                 category: category,
+                                 rating: ratingText
+                             });
+                         }
+                     }
+                 });
+ 
+                 result.financialRatings = ratings;
+             }*/
 
             // Passenger Ratings
             const imagePanel = document.querySelector('.as-panel.image');
