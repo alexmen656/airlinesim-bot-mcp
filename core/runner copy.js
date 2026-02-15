@@ -78,8 +78,7 @@ fetch('http://localhost:11434/v1/chat/completions',
                     },
                     {
                         role: "user",//system
-                       // content: "Should we start operations from VIE (Vienna), Austria to AGP (Málaga), Spain?"
-                       content: "Should we start operations from DFW (Dallas), USA to MIA (Miami), USA?"
+                        content: "Should we start operations from VIE (Vienna), Austria to AGP (Málaga), Spain?"
                     }
                 ],
                 response_format: {
